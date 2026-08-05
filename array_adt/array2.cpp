@@ -77,6 +77,7 @@ int *merge(int *A, int n, int * B, int m){
     return C;
 }
 
+//for 1 - n find the missing number in an array of size n-1
 int find_missing(int * A, int n){
     int total = (n+1)*(n+2)/2;
     int sum = 0;
