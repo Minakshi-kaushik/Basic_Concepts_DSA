@@ -194,6 +194,58 @@ Node* removeDuplicates(Node* head){
    
 };
 
+Node* reverseLL(Node* head){
+    Node* p = head;
+    Node* q = NULL;
+
+    while(p){
+        Node* temp = p->next;
+        
+        p->next = q;
+        q = p;
+        p = temp;
+    }
+    return q;
+}
+
+Node* mergeLL(Node* first, Node* second){
+    
+    Node* third ;
+    Node* last = NULL;
+    if(first->data < second->data){
+        third = first;
+        last = first;
+        first = first->next;
+        last ->next = NULL;
+    }else{
+        third = last = second;
+        second = second->next;
+        last->next = NULL;
+
+    }
+
+    while(first && second){
+        if(first-> data < second->data){
+            last->next = first;
+            last = first;
+            first = first->next;
+        }else{
+            last->next = second;
+            last = second;
+            second = second->next;
+        }
+        last->next = NULL;
+    }
+     if (first)
+        last->next = first;
+
+    if (second)
+        last->next = second;
+
+    return third;
+
+
+}
 
 int main(){
     Node obj;
