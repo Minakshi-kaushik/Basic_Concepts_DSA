@@ -14,6 +14,20 @@ struct Node{
 
 };
 
+Node* buildTree(){
+    int x;
+    cin>> x;
+    if(x == -1) return nullptr;
+
+    Node* root = new Node(x);
+    
+    root->left = buildTree();
+    root->right = buildTree();
+
+    return root;
+
+}
+
 int countNodes(Node* root){
     if(root == nullptr) return 0;
 
